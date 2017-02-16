@@ -1,0 +1,23 @@
+{
+  "design": "archetecture",
+  "questions": [
+    "Terasort",
+    "BitTorrent - Peer to Peer Communication",
+    "Unique anagrams in file : http://algorithmsandme.in/category/interview-experiences/design-questions/",
+    "Tinyurl system design : http://algorithmsandme.in/category/interview-experiences/design-questions/",
+    "N-ary tree : http://algorithmsandme.in/category/interview-experiences/design-questions/",
+    "Cassandra",
+    "HBase",
+    "BigTable",
+    "RDD: https://www.cs.berkeley.edu/~matei/papers/2012/nsdi_spark.pdf",
+    "Kafka: http://notes.stephenholiday.com/Kafka.pdf",
+    "ZooKeeper material: http://www.se-radio.net/2015/06/episode-229-flavio-junqueira-on-distributed-coordination-with-apache-zookeeper/ , https://www.youtube.com/watch?v=mMG-wagNBwY",
+    "DynamoDB: http://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf",
+    "GFS: http://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf",
+    "BigTable: http://static.googleusercontent.com/media/research.google.com/en//archive/bigtable-osdi06.pdf",
+    "Dremel: http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/36632.pdf",
+    "Spanner: http://static.googleusercontent.com/media/research.google.com/en//archive/spanner-osdi2012.pdf",
+    "Mesos: https://www.cs.berkeley.edu/~alig/papers/mesos.pdf",
+    "The Architecture Of Algolia’s Distributed Search Network : http://highscalability.com/blog/2015/3/9/the-architecture-of-algolias-distributed-search-network.html"
+  ]
+}
