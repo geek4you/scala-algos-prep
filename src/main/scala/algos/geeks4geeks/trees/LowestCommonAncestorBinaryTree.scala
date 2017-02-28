@@ -13,8 +13,9 @@ import java.util
   *
   * To check if the values exist in the tree, use boolean variables. Remember object items are static in scala
   *
-  * TODO: REVISIT
   */
+
+//todo: REVISIT
 object LowestCommonAncestorBinaryTree extends App {
   var n1IsPresent = false
   var n2IsPresent = false
