@@ -37,4 +37,6 @@ For every node, we need to get the maximum and minimum heights and compare them.
   */
 //todo: revisit
 
-object CheckIfHeightBalancedLikeRedBlackTree {}
+object CheckIfHeightBalancedLikeRedBlackTree {
+
+}
