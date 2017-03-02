@@ -1,0 +1,17 @@
+{
+ "design": "architecture",
+ "questions":[
+  {
+   "question-1": ["You have been asked to design some software to continuously display the top 10 search terms on Google.",
+     "You are given access to a feed that provides an endless real-time stream of search terms currently being searched on Google.",
+     "Describe what algorithm and data structures you would use to implement this.",
+     "You are to design two variations.",
+       "(i) Display the top 10 search terms of all time (i.e. since you started reading the feed).",
+       "(ii) Display only the top 10 search terms for the past month, updated hourly.",
+     "You can use an approximation to obtain the top 10 list, but you must justify your choices"]
+  },
+  {
+    "question-2":[]
+  }
+]
+}

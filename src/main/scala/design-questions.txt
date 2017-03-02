@@ -1,0 +1,31 @@
+question-1:
+
+"You have been asked to design some software to continuously display the top 10 search terms on Google. You are given access to a feed that provides an endless real-time stream of search terms currently being searched on Google. Describe what algorithm and data structures you would use to implement this. You are to design two variations:
+
+(i) Display the top 10 search terms of all time (i.e. since you started reading the feed).
+
+(ii) Display only the top 10 search terms for the past month, updated hourly.
+
+You can use an approximation to obtain the top 10 list, but you must justify your choices."
+
+The first part asks for the 10 most frequent items in a continuously growing sub-sequence of an infinite list. I looked into selection algorithms, but couldn't find any online versions to solve this problem.
+
+The second part uses a finite list, but due to the large amount of data being processed, you can't really store the whole month of search terms in memory and calculate a histogram every hour.
+
+The problem is made more difficult by the fact that the top 10 list is being continuously updated, so somehow you need to be calculating your top 10 over a sliding window.
+
+
+question-2:
+
+The Input
+The input is an endless stream of English words or phrases (we refer them as tokens).
+The Output
+Output top N tokens we have seen so far (from all the tokens we have seen!)
+Output top N tokens in a historical window, say, last day or last week.
+An application of this research is to find the hot topic or trends of topic in Twitter or Facebook. We have a crawler that crawls on the website, which generates a stream of words, which will feed into the system. The system then will output the words or phrases of top frequency either at overall or historically. Imagine in last couple of weeks the phrase "World Cup" would appears many times in Twitter. So does "Paul the octopus". :)
+
+question-3:
+Design Memory Allocator
+http://www.drdobbs.com/a-quick-and-simple-memory-allocator/184403440
+
+question-4:

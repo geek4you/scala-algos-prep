@@ -41,4 +41,47 @@ For the above example, we traverse ‘h’ first in above array and replace ‘h
  [[http://www.geeksforgeeks.org/reverse-alternate-levels-binary-tree/]]
   */
 // todo: revisit
-object ReverseAlternateLevelsPerfectBinaryTree {}
+object ReverseAlternateLevelsPerfectBinaryTree extends App {
+
+  def preOrder[A](root1: Node[A], root2: Node[A], lvl: Int): Unit = {
+    if (Option(root1).isDefined && Option(root2).isDefined) {
+      // Swap subtrees if level is even
+      if (lvl % 2 == 0)
+        swap(root1, root2)
+
+      // Recur for left and right subtrees (Note : left of root1
+      // is passed and right of root2 in first call and opposite
+      // in second call.
+      preOrder(root1.left, root2.right, lvl + 1)
+      preOrder(root1.right, root1.left, lvl + 1)
+    }
+  }
+
+  def swap[A](node1: Node[A], node2: Node[A]): Unit = {
+    val tmp = node1.data
+    node1.data = node2.data
+    node2.data = tmp
+  }
+
+  override def main(args: Array[String]): Unit = {
+    val root = Node('a')
+    root.left = Node('b')
+    root.right = Node('c')
+    root.left.left = Node('d')
+    root.left.right = Node('e')
+    root.right.left = Node('f')
+    root.right.right = Node('g')
+    root.left.left.left = Node('h')
+    root.left.left.right = Node('i')
+    root.left.right.left = Node('j')
+    root.left.right.right = Node('k')
+    root.right.left.left = Node('l')
+    root.right.left.right = Node('m')
+    root.right.right.left = Node('n')
+    root.right.right.right = Node('o')
+    println(s"Inorder Traversal : ${InOrderTraversal.inorder(root)}")
+    preOrder(root.left, root.right, 0)
+    println(s"Inorder Traversal : ${InOrderTraversal.inorder(root)}")
+
+  }
+}

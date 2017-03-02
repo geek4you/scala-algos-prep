@@ -50,7 +50,6 @@ object MaxPathSumBetweenTwoLeafNodesInBinaryTree extends App {
     else
       return node.data + rs
 
-
   }
 
   override def main(args: Array[String]): Unit = {
@@ -67,7 +66,8 @@ object MaxPathSumBetweenTwoLeafNodesInBinaryTree extends App {
     root.right.right.right.left = Node(4)
     root.right.right.right.right = Node(-1)
     root.right.right.right.right.left = Node(10)
-    println(maxPathSumBtw2Leafs(root))
+    maxPathSumBtw2Leafs(root)
+    println(MaxSoFar.maxSumSoFar)
   }
 
 }

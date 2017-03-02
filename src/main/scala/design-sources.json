@@ -1,6 +1,8 @@
 {
   "design": "archetecture",
   "questions": [
+    "design memory allocator",
+    "design hash table for streaming queries",
     "auto-complete feature implementation",
     "Instagram design",
     "Terasort",
