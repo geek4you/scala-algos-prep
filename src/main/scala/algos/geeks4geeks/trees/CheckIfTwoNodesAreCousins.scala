@@ -4,7 +4,8 @@ package algos.geeks4geeks.trees
   * Created by geek4you on 2/27/17.
   */
 /**
-  * Check if two nodes are cousins in a Binary Tree
+  *
+ Check if two nodes are cousins in a Binary Tree
 Given the binary Tree and the two nodes say ‘a’ and ‘b’, determine whether the two nodes are cousins of each other or not.
 
 Two nodes are cousins of each other if they are at same level and have different parents.
@@ -23,4 +24,6 @@ We strongly recommend to minimize the browser and try this yourself first.
 
 The idea is to find level of one of the nodes. Using the found level, check if ‘a’ and ‘b’ are at this level. If ‘a’ and ‘b’ are at given level, then finally check if they are not children of same parent.
   */
+
+// todo: revisit
 object CheckIfTwoNodesAreCousins {}
