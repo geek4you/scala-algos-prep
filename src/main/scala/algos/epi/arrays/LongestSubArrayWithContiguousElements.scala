@@ -22,7 +22,6 @@ Output: Length of the longest contiguous subarray is 5
  What if duplicates are present?
  check : @see [[http://www.geeksforgeeks.org/length-largest-subarray-contiguous-elements-set-2/]]
   */
-
 // todo: what if duplicates present  [[http://www.geeksforgeeks.org/length-largest-subarray-contiguous-elements-set-2/]]
 object LongestSubArrayWithContiguousElements {
 

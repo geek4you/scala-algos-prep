@@ -7,6 +7,9 @@ import java.util
   */
 /**
   * Page : 70
+  *
+  * Can also come as max difference between two values when larger number comes after smaller number
+  * [[http://www.geeksforgeeks.org/maximum-difference-between-two-elements/]]
   */
 object MaxProfitBuyAndSellStockOnce {
 
