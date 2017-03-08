@@ -4,6 +4,7 @@ import java.util
 import java.util.Collections
 
 /**
+  * Page 96
   * Created by geek4you on 3/4/17.
   */
 sealed trait Color { def id: Int }
@@ -18,10 +19,10 @@ case object Blue extends Color {
 }
 
 /**
- * Remember Pivot index should always be the middle elem else when you have elements like
- * (<pivot) (==pivot) (>pivot)
- * the borders may contain elements which are not ordered. !!
- */
+  * Remember Pivot index should always be the middle elem else when you have elements like
+  * (<pivot) (==pivot) (>pivot)
+  * the borders may contain elements which are not ordered. !!
+  */
 object DutchNationalFlagAlgorithm {
 
   def dutchNationalFlagPartition(pivotIndex: Int,
@@ -35,7 +36,7 @@ object DutchNationalFlagAlgorithm {
       * unclassified group: arr.subList(equal, larger)
       * top group: arr.subList(larger, arr.size)
       */
-    var (smaller, equal, larger) = (0, 0, arr.size-1)
+    var (smaller, equal, larger) = (0, 0, arr.size - 1)
 
     // keep iterating as long as there is an unclassified elem
     while (equal <= larger) {

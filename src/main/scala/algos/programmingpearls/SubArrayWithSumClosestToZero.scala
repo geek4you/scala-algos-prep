@@ -23,7 +23,7 @@ object SubArrayWithSumClosestToZero {
     // sort cum sums array
     scala.util.Sorting.quickSort(cumulativeSum)
 
-    var minDiff = Integer.MAX_VALUE
+    var minDiff = Int.MaxValue
     for (i <- 0 to cumulativeSum.length - 2) {
       minDiff = Math.min(cumulativeSum(i + 1) - cumulativeSum(i), minDiff)
     }

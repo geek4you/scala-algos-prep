@@ -12,10 +12,10 @@ package algos.programmingpearls
 object MaxSumContiguousSubArray {
 
   def maxSumContiguousSubArray(arr: Array[Int]): Int = {
-    var maxSumSoFar = 0
-    var maxSumEndingHere = 0
+    var maxSumSoFar = arr(0)
+    var maxSumEndingHere = arr(0)
 
-    for (i <- arr.indices) {
+    for (i <- 1 until arr.length) {
       maxSumEndingHere = Math.max(maxSumEndingHere + arr(i), arr(i))
       maxSumSoFar = Math.max(maxSumSoFar, maxSumEndingHere)
     }
@@ -23,7 +23,7 @@ object MaxSumContiguousSubArray {
   }
 
   def main(args: Array[String]): Unit = {
-    val arr = Array[Int](-2, -3, 4, -1, -2, 1, 5, -3)
+    val arr = Array[Int](-2, -3, -4, -1, -2, -1, -5, -3)
     println(maxSumContiguousSubArray(arr))
   }
 }
