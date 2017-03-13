@@ -1,4 +1,4 @@
-package algos.epi.arrays
+package algos.epi.matrix
 
 import java.util
 

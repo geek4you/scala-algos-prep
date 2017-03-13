@@ -34,7 +34,5 @@ object SubArrayWithSumClosestToNumberT extends App {
     leastDiff
   }
 
-  override def main(args: Array[String]): Unit = {
-
-  }
+  override def main(args: Array[String]): Unit = {}
 }
