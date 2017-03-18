@@ -12,7 +12,6 @@ object CyclicallySortedArray {
     var (left, right) = (0, input.length - 1)
     while (left < right) {
       val mid = left + (right - left) / 2
-
       if (input(mid) > input(right)) {
         left = mid + 1
       } else if (input(mid) < input(right)) {
