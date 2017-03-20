@@ -3,6 +3,11 @@ package algos.epi.linkedlists.single
 /**
   * Created by geek4you on 3/12/17.
   */
+
+/**
+  * Page 119
+  * @see [[http://www.geeksforgeeks.org/detect-and-remove-loop-in-a-linked-list/]] for reasoning about why they meet at the start of the loop
+  */
 object DetectAndRemoveLoop extends App {
 
   def detectAndRemoveLoop[A](head: ListNode[A]): Unit = {

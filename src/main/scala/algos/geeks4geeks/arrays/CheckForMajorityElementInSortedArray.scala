@@ -8,6 +8,7 @@ package algos.geeks4geeks.arrays
   * linear search
   * 2) T(n) = O(logn)
   * Binary search
+  * @see [[http://www.geeksforgeeks.org/check-for-majority-element-in-a-sorted-array/]]
   */
 // todo: revisit
 object CheckForMajorityElementInSortedArray extends App {

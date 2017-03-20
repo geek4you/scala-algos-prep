@@ -13,7 +13,7 @@ object RemoveDuplicatesFromSortedArray {
   def removeDuplicates(arr: Array[Int]): Unit = {
     var writeIndex = 1
     for(i <- 1 until arr.length){
-      if(!(arr(writeIndex-1) == arr(i))){
+      if(arr(writeIndex-1) != arr(i)){
         arr(writeIndex) = arr(i)
         writeIndex += 1
       }

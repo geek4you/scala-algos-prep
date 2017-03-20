@@ -2,6 +2,8 @@ package algos.geeks4geeks.arrays
 
 /**
   * Created by geek4you on 3/8/17.
+  * http://www.geeksforgeeks.org/maximum-difference-between-two-elements/
+  * same as [[algos.epi.arrays.MaxProfitBuyAndSellStockOnce]]
   */
 object MaxDifferenceBetweenTwoElementThatLargerElementAppearsAfterSmallerNumber extends App{
 

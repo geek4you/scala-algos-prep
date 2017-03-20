@@ -4,6 +4,7 @@ package algos.epi.arrays
   * Created by geek4you on 3/6/17.
   */
 /**
+  * Page: 76
   * 1) find the position where the increasing sub sequence is broken from end.
   * 2) swap this element with the smallest element which is greater than this element on the right.
   * 3) reverse the second part of the array.
@@ -15,12 +16,12 @@ object NextPermutation extends App{
     while (k >= 0 && arr(k) >= arr(k + 1)) {
       k -= 1
     }
-    if (k != -1)
+    if (k == -1)
       return arr // arr is the last permutation.
 
     // swap the smallest entry after index k that is greater than arr[k]
-    // we exploit the fact that arr[k+1 : arr.length-1] is decreasing so if we search in reverse order, the first entry
-    // that is greater than arr[k] is the smallest entry
+    // we exploit the fact that arr[k+1 : arr.length-1] is decreasing so if we search in reverse order,
+    // the first entry that is greater than arr[k] is the smallest entry
     var i = arr.length - 1
     var done = false
     while (i > k && done) {

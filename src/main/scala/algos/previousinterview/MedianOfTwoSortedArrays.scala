@@ -29,6 +29,7 @@ package algos.previousinterview
   * If count becomes n(For 2n elements), we have reached the median. Take the average of the elements at indexes n-1
   * and n in the merged array.
   */
+// todo: revisit
 object MedianOfTwoSortedArrays extends App {
 
   private def median(arr1: Array[Int], arr2: Array[Int]): Int = {

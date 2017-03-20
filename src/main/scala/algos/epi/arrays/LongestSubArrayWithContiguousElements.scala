@@ -17,7 +17,7 @@ Output: Length of the longest contiguous subarray is 5
 
  The important thing to note in question is, it is given that all elements are distinct. If all elements are distinct, then a subarray has contiguous elements if and only if the difference between maximum and minimum elements in subarray is equal to the difference between last and first indexes of subarray. So the idea is to keep track of minimum and maximum element in every subarray.
 
- T(n) = O(n)
+ T(n) = O(n^2)
 
  What if duplicates are present?
  check : @see [[http://www.geeksforgeeks.org/length-largest-subarray-contiguous-elements-set-2/]]

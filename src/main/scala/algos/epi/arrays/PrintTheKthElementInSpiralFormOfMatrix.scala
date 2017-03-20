@@ -1,7 +1,7 @@
 package algos.epi.arrays
 
 /**
-  * Created by aashii on 3/5/17.
+  * Created by geek4you on 3/5/17.
   */
 /**
   * Page 90

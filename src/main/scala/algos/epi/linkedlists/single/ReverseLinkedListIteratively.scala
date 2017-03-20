@@ -16,15 +16,14 @@ object ReverseLinkedListIteratively extends App {
       var current = head
       var next = current.next
 
-      while (Option(current.next).isDefined) {
+      while (Option(current).isDefined) {
         next = current.next
         current.next = previous
         previous = current
         current = next
       }
-      current.next = previous
       head.next = null
-      Option(current)
+      Option(previous)
     }
   }
 

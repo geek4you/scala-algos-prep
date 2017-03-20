@@ -11,4 +11,23 @@ package algos.epi.linkedlists.single
   *
   * @see http://www.geeksforgeeks.org/pairwise-swap-elements-of-a-given-linked-list/
   */
-object PairWiseSwapLinkedList {}
+object PairWiseSwapLinkedList {
+
+  def pairWiseSwap[A](head: ListNode[A]): ListNode[A] = {
+    ReverseLinkedListInGroups.reverseInGroups(head, 2)
+  }
+
+  def main(args: Array[String]): Unit = {
+    var node = new ListNode[Int](80)
+    node = Push.push(node, 70)
+    node = Push.push(node, 60)
+    node = Push.push(node, 50)
+    node = Push.push(node, 40)
+    node = Push.push(node, 30)
+    node = Push.push(node, 20)
+    node = Push.push(node, 10)
+    PrintLinkedList.print(node)
+    System.out.println()
+    PrintLinkedList.print(pairWiseSwap(node))
+  }
+}
