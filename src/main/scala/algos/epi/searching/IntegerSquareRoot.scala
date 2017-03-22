@@ -20,6 +20,7 @@ object IntegerSquareRoot {
       else
         high = mid - 1
     }
+
     low - 1
   }
 

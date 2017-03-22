@@ -5,11 +5,11 @@ import java.util
 /**
   * Created by geek4you  on 3/12/17.
   */
+/**
+  * Page 139
+  */
 object NormalisePathNames {
 
-  /**
-    *
-    */
   def normalisePathNames(path: String): String = {
     if (Option(path).isEmpty || path == "") {
       new IllegalArgumentException(" Path null or empty !!")
@@ -26,7 +26,7 @@ object NormalisePathNames {
 
     tokens.foreach(token => {
       if (token == "..") {
-        if (pathNames.isEmpty || pathNames.peekFirst().equals("..")) {
+        if (pathNames.isEmpty || pathNames.peekFirst() == "..") {
           pathNames.addFirst("..")
         } else {
           if (pathNames.peekFirst() == "/")

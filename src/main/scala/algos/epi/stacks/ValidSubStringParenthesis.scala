@@ -63,6 +63,5 @@ object ValidSubStringParenthesis {
   def main(args: Array[String]): Unit = {
     val expr = "()(()))))"
     println(maxValidSubString(expr))
-
   }
 }

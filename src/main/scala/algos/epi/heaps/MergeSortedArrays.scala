@@ -16,7 +16,7 @@ class MergeSortedArrays {
     val resultBuffer = ArrayBuffer[Int]()
 
     // put in 1st elements of each array
-    for (i <- 0 until sortedArrays.length if sortedArrays(i).length > 0)
+    for (i <- sortedArrays.indices if sortedArrays(i).length > 0)
       minHeap += HeapNode(i, sortedArrays(i)(0), 0)
 
     while (minHeap.nonEmpty) {

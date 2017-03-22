@@ -10,8 +10,9 @@ object FindPeakElement {
   }
 
   def peakElementUtil(input: Array[Int], low: Int, high: Int): Int = {
+
     // Find index of middle element
-    val mid = low + (high - low) / 2;
+    val mid = low + (high - low) / 2
 
     // Compare middle element with its neighbours (if neighbours exist)
     if ((mid == 0 || input(mid - 1) <= input(mid)) &&
@@ -28,6 +29,7 @@ object FindPeakElement {
     // than it, then right half must have a peak element
     else
       peakElementUtil(input, mid + 1, high)
+
   }
 
   def main(args: Array[String]): Unit = {
@@ -36,4 +38,5 @@ object FindPeakElement {
     val input1 = Array(1, 2, 3, 4, 5, 6)
     println(input1(peakElement(input1)))
   }
+  
 }

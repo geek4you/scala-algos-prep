@@ -5,9 +5,12 @@ import scala.util.Random
 /**
   * Created by geek4you on 3/15/17.
   */
+/**
+  * Page 202
+  */
 object KthLargestElement {
 
-  def kthlargest(arr: Array[Int], k: Int): Int = {
+  def kthLargest(arr: Array[Int], k: Int): Int = {
     val rand = new Random(0)
 
     var (left, right) = (0, arr.length - 1)
@@ -51,7 +54,7 @@ object KthLargestElement {
 
   def main(args: Array[String]): Unit = {
     val arr = Array(3, 2, 1, 5, 4)
-    println(kthlargest(arr, 3))
+    println(kthLargest(arr, 3))
   }
 
 }
