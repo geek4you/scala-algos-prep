@@ -14,6 +14,9 @@ object BalancedParanthesis {
       if (char == '{' || char == '[' || char == '(') {
         stack.push(char)
       } else {
+        if (stack.isEmpty) {
+          return false
+        }
         val poped = stack.pop()
         if ((char == '}' && poped != '{') || (char == ')' && poped != '(') && (char == ']' && poped != '[')) {
           return false

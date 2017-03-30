@@ -9,9 +9,9 @@ import scala.collection.mutable
 /**
  * Page 214
  */
-object CheckPalindromePermutation {
+object CheckPalindromicPermutation {
 
-  def checkPalindromePermutation(input: String): Boolean = {
+  def checkPalindromicPermutation(input: String): Boolean = {
 
     val charFreqMap = mutable.Map[Char, Int]()
 
@@ -45,7 +45,7 @@ object CheckPalindromePermutation {
 
   def main(args: Array[String]): Unit = {
     val input = "edified"
-    println(checkPalindromePermutation(input))
+    println(checkPalindromicPermutation(input))
   }
 
 }
