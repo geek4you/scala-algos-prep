@@ -1,7 +1,5 @@
 package algos.epi.arrays
 
-import java.util
-
 /**
   * Created by geek4you on 3/4/17.
   */
@@ -10,46 +8,51 @@ import java.util
   */
 object MultiplyTwoArbitraryPrecisionNumbers {
 
-  def multiply(num1: util.List[Int], num2: util.List[Int]): util.List[Int] = {
+  def multiply(num1: Array[Int], num2: Array[Int]): Array[Int] = {
 
     // total digits in the product of n digits X m digits = n + m digits
     val sign =
-      if ((num1.get(0) ^ num2.get(0)) < 0)
+      if ((num1(0) ^ num2(0)) < 0)
         -1
       else
         1
 
-    val result = new util.ArrayList[Int](
-      util.Collections.nCopies(num1.size() + num2.size(), 0))
+    num1(0) = Math.abs(num1(0))
+    num2(0) = Math.abs(num2(0))
 
-    for (i <- num1.size() - 1 to 0 by 1) {
-      for (j <- num2.size() - 1 to 0 by 1) {
-        result.set(i + j + 1,
-                   result.get(i + j + 1) + num1.get(i) * num2.get(j))
-        result.set(i + j, result.get(i + j) + result.get(i + j + 1) / 10)
-        result.set(i + j + 1, result.get(i + j + 1) % 10)
+    val result = Array.fill(num1.size + num2.size)(0)
+
+    for (i <- num1.length - 1 to 0 by -1) {
+      for (j <- num2.length - 1 to 0 by -1) {
+        result(i + j + 1) = result(i + j + 1) + num1(i) * num2(j)
+        result(i + j) = result(i + j) + result(i + j + 1) / 10
+        result(i + j + 1) = result(i + j + 1) % 10
       }
     }
 
     // Remove leading zeros
     var firstNotZero = 0
-    while (firstNotZero < result.size() && result.get(firstNotZero) == 0) {
+    while (firstNotZero < result.length && result(firstNotZero) == 0) {
       firstNotZero += 1
     }
 
-    val r = result.subList(firstNotZero, result.size())
-    if (r.isEmpty) {
-      util.Arrays.asList(0)
-    } else {
-      r.set(0, r.get(0) * sign)
-      r
-    }
+    val resultWithoutPrecedingZeros = result.filter(x => x != 0)
+
+    if (sign == -1 && resultWithoutPrecedingZeros.nonEmpty)
+      resultWithoutPrecedingZeros(0) = resultWithoutPrecedingZeros(0) * -1
+
+    if (resultWithoutPrecedingZeros.isEmpty)
+      Array(0)
+    else resultWithoutPrecedingZeros
+
   }
 
   def main(args: Array[String]): Unit = {
-    val arr1 = util.Arrays.asList(1, 9, 3, 7, 0, 7, 7, 2, 1)
-    val arr2 = util.Arrays.asList(-7, 6, 1, 8, 3, 8, 2, 5, 7, 2, 8, 7)
-    val result = multiply(arr1, arr2)
-    result.forEach(x => println(x))
+    val arr1 = Array(7, 9)
+    val arr2 = Array(7, 8, 9)
+    println(multiply(arr1,arr2).mkString(""))
+    val result = multiply(Array(-1, 2), Array(0))
+    println(result.mkString(""))
   }
+
 }

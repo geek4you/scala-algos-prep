@@ -1,7 +1,6 @@
 package algos.epi.arrays
 
-import java.util
-import java.util.Collections
+import scala.collection.mutable.ArrayBuffer
 
 /**
   * Page 96
@@ -26,8 +25,8 @@ case object Blue extends Color {
 object DutchNationalFlagAlgorithm {
 
   def dutchNationalFlagPartition(pivotIndex: Int,
-                                 arr: util.ArrayList[Color]): Unit = {
-    val pivot = arr.get(pivotIndex)
+                                 arr: ArrayBuffer[Color]): Unit = {
+    val pivot = arr(pivotIndex)
 
     /**
       * Keep the following invariants during partitioning:
@@ -41,34 +40,42 @@ object DutchNationalFlagAlgorithm {
     // keep iterating as long as there is an unclassified elem
     while (equal <= larger) {
       // arr(equal) is the incoming unclassified element
-      if (arr.get(equal).id < pivot.id) {
-        Collections.swap(arr, smaller, equal)
+      if (arr(equal).id < pivot.id) {
+        swap(arr, smaller, equal)
         smaller += 1
         equal += 1
-      } else if (arr.get(equal) == pivot) {
+      } else if (arr(equal) == pivot) {
         equal += 1
       } else {
         // arr.get(equal) > pivot
-        Collections.swap(arr, equal, larger)
+        swap(arr, equal, larger)
         larger -= 1
       }
     }
+
   }
 
+  def swap(arr: ArrayBuffer[Color], idx1: Int, idx2: Int): Unit = {
+    val tmp = arr(idx1)
+    arr(idx1) = arr(idx2)
+    arr(idx2) = tmp
+  }
   def main(args: Array[String]): Unit = {
-    val arr = new util.ArrayList[Color]()
-    arr.add(Red)
-    arr.add(White)
-    arr.add(White)
-    arr.add(Red)
-    arr.add(White)
-    arr.add(Blue)
-    arr.add(White)
-    arr.add(Blue)
-    arr.add(Red)
-    arr.add(Red)
-    arr.add(White)
-    dutchNationalFlagPartition(1, arr)
-    arr.forEach(x => println(x))
+    val arr = new ArrayBuffer[Color]()
+    arr ++=
+      Array(Blue,
+            Red,
+            White,
+            White,
+            Red,
+            White,
+            Blue,
+            White,
+            Blue,
+            Red,
+            Red,
+            White)
+    dutchNationalFlagPartition(2, arr)
+    println(arr.mkString(", "))
   }
 }

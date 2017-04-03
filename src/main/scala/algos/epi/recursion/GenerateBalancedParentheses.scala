@@ -5,7 +5,10 @@ import java.util
 import scala.collection.mutable.ArrayBuffer
 
 /**
-  * Created by pradeep on 3/29/17.
+  * Created by geek4you on 3/29/17.
+  */
+/**
+  * Page 296
   */
 object GenerateBalancedParentheses {
 

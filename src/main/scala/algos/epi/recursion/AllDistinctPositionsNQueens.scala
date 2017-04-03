@@ -26,11 +26,11 @@ object AllDistinctPositionsNQueens {
       result += colPlacements.clone()
     } else {
       for (col <- 0 until n) {
-        colPlacements.append(Position(row, col))
+        colPlacements += Position(row, col)
         if (isValid(colPlacements)) {
           solveNQueens(n, row + 1, colPlacements, result)
         }
-        colPlacements.remove(colPlacements.size - 1)
+        colPlacements -= colPlacements(colPlacements.size - 1)
       }
     }
   }

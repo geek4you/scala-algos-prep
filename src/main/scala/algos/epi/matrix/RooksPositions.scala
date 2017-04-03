@@ -4,9 +4,12 @@ package algos.epi.matrix
   * Created by geeks4geeks on 3/7/17.
   */
 /**
+  * Page 451
+  * @note grid with 1's and 0's. 0's encode the positions of the rooks on the chessboard.
+  * Update array to have 0's at all locations that can be attacked by rooks.
   * [[http://www.geeksforgeeks.org/a-boolean-matrix-question/]]
   */
-object RooksPositions extends App{
+object RooksPositions extends App {
 
   def rookPositions(matrix: Array[Array[Int]]): Unit = {
 
@@ -19,7 +22,7 @@ object RooksPositions extends App{
 
     var firstColumn = false
     for (i <- matrix.indices) {
-      if (matrix(i)(0) == 1) {
+      if (matrix(i)(0) == 0) {
         firstColumn = true
       }
     }
@@ -50,7 +53,5 @@ object RooksPositions extends App{
         matrix(i)(0) = 0
   }
 
-  override def main(args: Array[String]): Unit = {
-
-  }
+  override def main(args: Array[String]): Unit = {}
 }
