@@ -3,15 +3,22 @@ package algos.epi.strings
 /**
   * Created by geek4you on 3/8/17.
   */
-
-// todo: revisit
+// TODO: revisit
+/**
+  * Page 98
+  */
 object SpreadSheetEncoding extends App {
 
   def encode(col: String): Int = {
+    var power = 1
     var result = 0
-    for (i <- 0 until col.length) {
-      val digit = col.charAt(i) - 'A' + 1
-      result = result * 26 + digit
+    var i = col.length - 1
+    while (i >= 0) {
+      val digit = col.charAt(i)
+      val valueOfDigit = digit - 'A' + 1
+      result += power * valueOfDigit
+      power = power * 26
+      i -= 1
     }
     result
   }

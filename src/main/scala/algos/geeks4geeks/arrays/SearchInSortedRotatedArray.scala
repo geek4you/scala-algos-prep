@@ -16,6 +16,7 @@ object SearchInSortedRotatedArray {
     *
     * taken from [[algos.epi.searching.CyclicallySortedArray]]
     */
+  // TODO: Revisit
   def findPivot(arr: Array[Int]): Int = {
     var (left, right) = (0, arr.length - 1)
 

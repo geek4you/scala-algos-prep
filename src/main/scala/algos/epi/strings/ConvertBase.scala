@@ -6,7 +6,6 @@ package algos.epi.strings
   */
 object ConvertBase extends App {
 
-
   /**
     * Converts base string into decimal int
     */
@@ -14,21 +13,36 @@ object ConvertBase extends App {
     val isNegative = numAsString.startsWith("-")
 
     var i = 0
-    if (isNegative) i = 0 else i = 1
+    if (isNegative) i = 1 else i = 0
 
     var power = 1
     var result = 0
-    while (i < numAsString.length) {
-      result *= base
-      val digit = numAsString.charAt(i)
-        result += digit
-      i += 1
+    var j = numAsString.length - 1
+    while (j >= i) {
+      val digit = numAsString.charAt(j)
+      val valueOfDigit = getValueOfChar(digit)
+      if (valueOfDigit >= base)
+        throw new RuntimeException("Invalid Number !!")
+      result += valueOfDigit * power
+      power *= base
+      j -= 1
     }
 
     if (isNegative)
       -1 * result
     else
       result
+  }
+
+  /**
+    * To return value of a char. For example, 2 is
+    * returned for '2'.  10 is returned for 'A', 11 for 'B'
+    */
+  def getValueOfChar(ch: Char): Int = {
+    if (ch >= '0' && ch <= '9')
+      ch - '0'
+    else
+      ch - 'A' + 10
   }
 
   /**
@@ -53,6 +67,8 @@ object ConvertBase extends App {
     println(constructFromBase(num1, 2))
     val num2 = 282
     println(constructFromBase(num2, 16))
+    println(convertBase("11A", 16))
+    println(convertBase("1100", 2))
   }
 
 }

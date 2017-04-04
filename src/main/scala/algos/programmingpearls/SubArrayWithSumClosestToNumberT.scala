@@ -9,6 +9,8 @@ package algos.programmingpearls
 Let prefix[i] be the cumulative sum up to i, like in the example above. Then, we need to compute the best subarray ending at ii. This means we need to find an index j<ij<i such that the sum is as close as possible to tt. This means that this value needs to be as close as possible to prefix[i] - t, since  prefix[i] - prefix[j] is the sum of the subsequence between [j,i]. So, for every prefix, we must find another earlier prefix that’s as close in value to prefix[i] - t. We can use a Java TreeSet for this which supports O(log(n))O(log⁡(n)) insertion, lower bound, and upper bound operations.
  [[https://rafal.io/posts/subsequence-closest-to-t.html]]
  This algorithm is Question 10 Column 8 in Programming Pearls by Jon Bentley
+
+  Also check [[FindSubArrayWithGivenSum]]
   */
 object SubArrayWithSumClosestToNumberT extends App {
 

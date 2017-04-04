@@ -3,15 +3,15 @@ package algos.epi.strings
 /**
   * Created by geek4you on 3/7/17.
   */
-class IntegerToString extends App {
+object IntegerToString extends App {
 
-  def convert(int: Int): Unit = {
+  def convert(int: Int): String = {
     var number = int
     val negative = if (number < 0) true else false
     val builder = new StringBuilder()
 
     do {
-      val digit = '0' + Math.abs(number % 10)
+      val digit = Math.abs(number % 10)
       builder.append(digit)
       number = number / 10
     } while (number != 0)

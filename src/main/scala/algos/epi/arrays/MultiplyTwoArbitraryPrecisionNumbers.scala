@@ -48,7 +48,7 @@ object MultiplyTwoArbitraryPrecisionNumbers {
   }
 
   def main(args: Array[String]): Unit = {
-    val arr1 = Array(7, 9)
+    val arr1 = Array(-7, 9)
     val arr2 = Array(7, 8, 9)
     println(multiply(arr1,arr2).mkString(""))
     val result = multiply(Array(-1, 2), Array(0))

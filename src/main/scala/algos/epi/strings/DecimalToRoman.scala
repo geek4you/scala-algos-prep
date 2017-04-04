@@ -7,7 +7,7 @@ package algos.epi.strings
   * Page 106
   *
   */
-object DecimalToRoman extends App{
+object DecimalToRoman extends App {
 
   /**
     * Rules:

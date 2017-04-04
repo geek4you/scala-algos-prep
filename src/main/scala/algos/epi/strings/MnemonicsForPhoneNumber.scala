@@ -1,6 +1,6 @@
 package algos.epi.strings
 
-import java.util
+import scala.collection.mutable.ArrayBuffer
 
 /**
   * Created by geek4you on 3/9/17.
@@ -22,29 +22,33 @@ object MnemonicsForPhoneNumber {
                               "TUV",
                               "WXYZ")
 
-  def phoneMnemonic(phoneNumber: String): util.ArrayList[String] = {
-    val partialMnemonic = new Array[Char](phoneNumber.length)
-    val mnemonics = new util.ArrayList[String]()
-    phoneMnemonicHelper(phoneNumber, 0, partialMnemonic, mnemonics)
+  def phoneMnemonic(phoneNumber: String): ArrayBuffer[String] = {
+    val mnemonics = new ArrayBuffer[String]()
+    directedPhoneMnemonic(phoneNumber, 0, new ArrayBuffer[Char](), mnemonics)
     mnemonics
   }
 
-  def phoneMnemonicHelper(phoneNumber: String,
-                          digit: Int,
-                          partialMnemonic: Array[Char],
-                          mnemonics: util.ArrayList[String]): Unit = {
-
-    if (digit == phoneNumber.length) {
-      // All the digits are processed, so add partialMnemonic to the mnemonics
-      // we add a copy since subsequent calls modify the partialMnemonic
-      mnemonics.add(new String(partialMnemonic))
-    } else {
-      // Try all possible characters for this digit
-      for (i <- 0 until mapping(phoneNumber.charAt(digit) - '0').length) {
-        val ch = mapping(phoneNumber.charAt(i) - '0').charAt(i)
-        partialMnemonic(digit) = ch
-        phoneMnemonicHelper(phoneNumber, digit + 1, partialMnemonic, mnemonics)
+  def directedPhoneMnemonic(phoneNumber: String,
+                            level: Int,
+                            partialMnemonic: ArrayBuffer[Char],
+                            mnemonics: ArrayBuffer[String]): Unit = {
+    if (level == phoneNumber.length)
+      mnemonics += new String(partialMnemonic.toArray)
+    else {
+      val digit = phoneNumber.charAt(level) - '0'
+      for (i <- 0 until mapping(digit).length) {
+        partialMnemonic += mapping(digit).charAt(i)
+        directedPhoneMnemonic(phoneNumber,
+                              level + 1,
+                              partialMnemonic,
+                              mnemonics)
+        partialMnemonic.remove(partialMnemonic.size - 1)
       }
     }
+  }
+
+  def main(args: Array[String]): Unit = {
+    val number = "669258"
+    println(phoneMnemonic(number).mkString("\n"))
   }
 }

@@ -28,15 +28,15 @@ import scala.collection.mutable.ListBuffer
 object PrintAnagramsInAFile {
 
   /**
-   * Also prints words which don't have anagrams
-   */
+    * Also prints words which don't have anagrams
+    */
   def printAnagramsTogether(arr: Array[String]): Unit = {
     val list = new ListBuffer[WordWithSign]()
     arr.foreach { elem =>
       list.append(WordWithSign(elem, getWordSignature(elem)))
     }
     val soretedList = list.sortBy(word => word.sign)
-    soretedList.foreach( x => println(x.word))
+    soretedList.foreach(x => println(x.word))
   }
 
   def getWordSignature(word: String): String = {
