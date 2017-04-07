@@ -24,9 +24,9 @@ object TotalNumPathsToReachCellWithObstacles {
     if (isEnd(grid, row, col)) return 1
     if (paths(row)(col) == 0) {
       paths(row)(col) =
-        (if (row+1 < grid.length) {
+        (if (row + 1 < grid.length) {
            directedCountPaths(grid, row + 1, col, paths)
-         } else 0) + (if (col+1 < grid(0).length) {
+         } else 0) + (if (col + 1 < grid(0).length) {
                         directedCountPaths(grid, row, col + 1, paths)
                       } else 0)
     }
