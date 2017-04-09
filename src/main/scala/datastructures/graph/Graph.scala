@@ -1,7 +1,10 @@
 package datastructures.graph
 
+import scala.collection.mutable
+import scala.collection.mutable.ListBuffer
+
 class Graph {
-  val nodeLookUp = scala.collection.mutable.Map[Int, Node]()
+  private val nodeLookUp = scala.collection.mutable.Map[Int, Node]()
 
   /**
     * Adds a new node to the graph
@@ -24,16 +27,16 @@ class Graph {
   def addEdge(src: Int, dest: Int): Unit = {
     val srcNode = nodeLookUp(src)
     val destNode = nodeLookUp(dest)
-    srcNode.adjacent.add(destNode)
+    srcNode.adjacent += destNode
   }
 
   /**
-    * remvoes the edge from src to dest
+    * removes the edge from src to dest
     */
-  def removeEdge(src: Int, dest: Int): Boolean = {
+  def removeEdge(src: Int, dest: Int): Unit = {
     val srcNode = nodeLookUp(src)
     val destNode = nodeLookUp(dest)
-    srcNode.adjacent.remove(destNode)
+    srcNode.adjacent -= destNode
   }
 
   /**
@@ -46,7 +49,7 @@ class Graph {
   /**
     * Returns a copy of the Linked List of outward edges from a vertex
     */
-  def getEdgesFromVertex(id: Int): java.util.LinkedList[Node] = {
+  def getEdgesFromVertex(id: Int): Seq[Node] = {
     nodeLookUp(id).adjacent
   }
 
@@ -89,19 +92,16 @@ class Graph {
   }
 
   private def hasPathBFSUtil(src: Node, dest: Node): Boolean = {
-    val queue = new java.util.LinkedList[Node]()
-    val visited = new java.util.HashSet[Int]()
-    queue.add(src)
-    while (!queue.isEmpty) {
-      val node = queue.removeFirst()
+    val queue = new ListBuffer[Node]()
+    val visited = new mutable.HashSet[Int]()
+    queue += src
+    while (queue.nonEmpty) {
+      val node = queue.remove(0)
       if (node == dest)
         return true
       if (!visited.contains(node.id)) { // only process if this node is not already visited
-        visited.add(node.id)
-        val iter = node.adjacent.iterator
-        while (iter.hasNext) {
-          queue.add(iter.next)
-        }
+        visited += node.id
+        node.adjacent.foreach(adjNode => queue += adjNode)
       }
     }
     false
@@ -117,8 +117,8 @@ class Graph {
   }
 }
 
-case class Node(id: Int, adjacent: java.util.LinkedList[Node]) {
-  def this(id: Int) = this(id, new java.util.LinkedList[Node]())
+case class Node(id: Int, adjacent: ListBuffer[Node]) {
+  def this(id: Int) = this(id, new ListBuffer[Node]())
 }
 
 object Node {
