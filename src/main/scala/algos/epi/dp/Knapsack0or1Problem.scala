@@ -1,5 +1,7 @@
 package algos.epi.dp
 
+import scala.collection.mutable
+
 /**
   * Created by geek4you on 4/5/17.
   */
@@ -14,37 +16,45 @@ package algos.epi.dp
 object Knapsack0or1Problem {
 
   def optimumSubjectToCapacity(items: Array[Item], capacity: Int): Int = {
-    // v[i][j] holds the optimum value when we choose from items[0..i] and have a capacity of j
+    // cache[i][j] holds the optimum value when we choose from items[0..i] and have a capacity of j
     // fill with -1
-    val v = Array.tabulate(items.length, capacity + 1)((i, j) => -1)
+    val cache = new mutable.HashMap[(Int, Int), Int]()
 
-    optimumSubjectToItemAndCapacity(items, items.length - 1, capacity, v)
+    optimumSubjectToItemAndCapacity(items, 0, capacity, cache)
   }
 
-  def optimumSubjectToItemAndCapacity(items: Array[Item],
-                                      k: Int,
-                                      availableCapacity: Int,
-                                      v: Array[Array[Int]]): Int = {
+  def optimumSubjectToItemAndCapacity(
+      items: Array[Item],
+      k: Int,
+      availableCapacity: Int,
+      cache: mutable.Map[(Int, Int), Int]): Int = {
 
-    if (k < 0) // no items to choose
-      0
+    if (k == items.length) // no items to choose
+      return 0
 
-    if (v(k)(availableCapacity) == -1) {
+    if (!cache.contains(k, availableCapacity)) {
       val withoutCurrentItem =
-        optimumSubjectToItemAndCapacity(items, k - 1, availableCapacity, v)
+        optimumSubjectToItemAndCapacity(items, k + 1, availableCapacity, cache)
       val withCurrentItem =
         if (availableCapacity < items(k).weight) 0
         else
-          items(k).weight + optimumSubjectToItemAndCapacity(
+          items(k).value + optimumSubjectToItemAndCapacity(
             items,
-            k - 1,
+            k + 1,
             availableCapacity - items(k).weight,
-            v)
+            cache)
 
-      v(k)(availableCapacity) = Math.max(withCurrentItem, withoutCurrentItem)
+      cache((k, availableCapacity)) =
+        Math.max(withCurrentItem, withoutCurrentItem)
     }
 
-    v(k)(availableCapacity)
+    cache((k, availableCapacity))
   }
   case class Item(weight: Int, value: Int)
+
+  def main(args: Array[String]): Unit = {
+    val items = Array[Item](Item(5, 60), Item(3, 50), Item(4, 70), Item(2, 30))
+    val capacity = 5
+    println(optimumSubjectToCapacity(items, capacity))
+  }
 }

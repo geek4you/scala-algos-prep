@@ -1,4 +1,4 @@
-package algos.geeks4geeks.arrays
+package algos.epi.greedy
 
 /**
   * Created by geek4you on 3/20/17.

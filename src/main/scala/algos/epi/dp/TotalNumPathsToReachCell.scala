@@ -10,7 +10,7 @@ package algos.epi.dp
   */
 object TotalNumPathsToReachCell {
 
-  def totalPaths(matrix: Array[Array[Int]], dest: Cell): Int = {
+  def totalPathsTopDown(matrix: Array[Array[Int]], dest: Cell): Int = {
 
     // a 2d array to memorize the computed paths
     val counts = Array.ofDim[Int](matrix.length, matrix(0).length)
@@ -33,7 +33,7 @@ object TotalNumPathsToReachCell {
 
   def main(args: Array[String]): Unit = {
     val matrix = Array.ofDim[Int](3,3)
-    println(totalPaths(matrix, Cell(2,2)))
+    println(totalPathsTopDown(matrix, Cell(2,2)))
   }
 
 }
