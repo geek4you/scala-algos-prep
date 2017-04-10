@@ -70,15 +70,15 @@ class Graph {
   def hasPathDFS(src: Int, dest: Int): Boolean = {
     val srcNode = getNode(src)
     val destNode = getNode(dest)
-    val visited = new java.util.HashSet[Int]()
+    val visited = new mutable.HashSet[Int]()
     hasPathDfsUtil(srcNode, destNode, visited)
   }
 
   private def hasPathDfsUtil(src: Node,
                              dest: Node,
-                             visited: java.util.HashSet[Int]): Boolean = {
+                             visited: mutable.HashSet[Int]): Boolean = {
     if (visited.contains(src.id)) return false
-    visited.add(src.id)
+    visited += src.id
     if (src == dest) return true
 
     val iter = src.adjacent.iterator

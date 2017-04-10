@@ -14,5 +14,6 @@ package algos.epi.arrays
   *  5) somewhere in the middle matrix
   *
   *  [[http://www.geeksforgeeks.org/print-kth-element-spiral-form-matrix/]]
+  *
   */
 object PrintTheKthElementInSpiralFormOfMatrix {}
