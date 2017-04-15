@@ -33,6 +33,7 @@ object ValidSubStringParenthesis {
   def maxValidSubString(expr: String): Int = {
 
     val stack = new util.LinkedList[Int]()
+    stack.push(-1)
     // Initialize result
     var result = 0
 

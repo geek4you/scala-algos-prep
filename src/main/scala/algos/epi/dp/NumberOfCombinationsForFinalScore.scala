@@ -32,4 +32,5 @@ object NumberOfCombinationsForFinalScore {
     val individualPlayScores = Array(2, 3, 7)
     println(numCombinationsForFinalScore(12, individualPlayScores))
   }
+
 }
