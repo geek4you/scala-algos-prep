@@ -18,8 +18,10 @@ object JustifyText {
     for (i <- words.indices) {
       // currLineStart is the first word in the current line, and i is used to identify the last word.
       numWordsCurrLine += 1
+      // lookAheadLineLength = current line length + the length if the current
+      //                        word is added to the line + spaces
       val lookAheadLineLength = currLineLength + words(i).length + (numWordsCurrLine - 1)
-      if (lookAheadLineLength == lineLength) {
+      if (lookAheadLineLength == lineLength) { // length of the line with the current word matches the total length permitted
         result += joinLinesWithSpace(words,
                                      currLineStart,
                                      i,
@@ -27,7 +29,7 @@ object JustifyText {
         currLineStart = i + 1
         numWordsCurrLine = 0
         currLineLength = 0
-      } else if (lookAheadLineLength > lineLength) {
+      } else if (lookAheadLineLength > lineLength) { // length of the line with current word exceeds the total length permitted
         result += joinLinesWithSpace(words,
                                      currLineStart,
                                      i - 1,
@@ -35,12 +37,12 @@ object JustifyText {
         currLineStart = i
         numWordsCurrLine = 1
         currLineLength = words(i).length
-      } else {
+      } else { // lookAheadLineLength < lineLength , so more words can potentially fit in this line
         currLineLength += words(i).length
       }
     }
 
-    // handles last line
+    // // handles last line. last line is left alligned
     if (numWordsCurrLine > 0) {
       val line = new StringBuilder(
         joinLinesWithSpace(words,
@@ -48,7 +50,7 @@ object JustifyText {
                            words.length - 1,
                            numWordsCurrLine - 1))
       for (i <- 0 until (lineLength - currLineLength - (numWordsCurrLine - 1))) {
-        line.append(" ")
+        line.append("_")
       }
       result += line.toString()
     }
@@ -71,13 +73,13 @@ object JustifyText {
       val numCurrSpaces =
         Math.ceil(totalNumSpaces.toDouble / numWordsCurrLine).toInt
       for (j <- 0 until numCurrSpaces) {
-        line.append(" ")
+        line.append("_")
       }
       totalNumSpaces -= numCurrSpaces
     }
     line.append(words(end))
     for (i <- 0 until totalNumSpaces) {
-      line.append(" ")
+      line.append("_")
     }
     line.toString()
   }

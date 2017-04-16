@@ -1,37 +1,63 @@
 package algos.sorting
 
 /**
-  * Scala Style Merge sort
-  * http://dublintech.blogspot.com/2013/05/how-could-scala-do-merge-sort.html
-  * http://eddmann.com/posts/merge-sort-in-scala-using-tail-recursion-and-streams/
+  * Created by geek4you on 2/14/17.
   */
 object MergeSort extends App {
-  // It is the same divide and conquer idea.
 
-  //A small example-driven inclusion that I have also made is in the use of an implicit method to provide the less-than predicate. Implictis are an extremely powerful feature that deserves its own post, simply put however, the compiler is able to ‘implicitly’ deduce that I wish to use this comparator method based on its type signature (Int, Int => Boolean).
+  def sort(arry: Array[Int]): Unit = {
+    mergeSort(arry, 0, arry.length - 1)
+  }
 
-  implicit def IntIntLessThan(x: Int, y: Int) = x < y
-
-  def mergeSort[T](xs: List[T])(implicit pred: (T, T) => Boolean): List[T] = {
-    val m = xs.length / 2
-    if (m == 0) xs
-    else {
-      @scala.annotation.tailrec
-      def merge(ls: List[T], rs: List[T], acc: List[T] = List()): List[T] =
-        (ls, rs) match {
-          case (Nil, _) => acc ++ rs
-          case (_, Nil) => acc ++ ls
-          case (l :: ls1, r :: rs1) =>
-            if (pred(l, r)) merge(ls1, rs, acc :+ l)
-            else merge(ls, rs1, acc :+ r)
-        }
-      val (l, r) = xs splitAt m
-      merge(mergeSort(l), mergeSort(r))
+  private def mergeSort(arry: Array[Int], low: Int, high: Int): Unit = {
+    if (low < high) {
+      val mid = (high + low) / 2
+      mergeSort(arry, low, mid)
+      mergeSort(arry, mid + 1, high)
+      merge(arry, low, mid, high)
     }
   }
+
+  // Function to merge the two haves arr[l..m] and arr[m+1..h] of array arr[]
+  private def merge(arry: Array[Int], low: Int, mid: Int, high: Int): Unit = {
+    val tmpArry1 = new Array[Int](mid - low + 1)
+    val tmpArry2 = new Array[Int](high - mid)
+
+    Array.copy(arry, low, tmpArry1, 0, mid - low + 1)
+    Array.copy(arry, mid + 1, tmpArry2, 0, high - mid)
+
+    var i = 0
+    var j = 0
+    var k = low
+    while (i < tmpArry1.length && j < tmpArry2.length) {
+      tmpArry1(i) < tmpArry2(j) match {
+        case true =>
+          arry(k) = tmpArry1(i)
+          k += 1
+          i += 1
+        case false =>
+          arry(k) = tmpArry2(j)
+          k += 1
+          j += 1
+      }
+    }
+
+    while (i < tmpArry1.length) {
+      arry(k) = tmpArry1(i)
+      i += 1
+      k += 1
+    }
+
+    while (j < tmpArry2.length) {
+      arry(k) = tmpArry2(j)
+      j += 1
+      k += 1
+    }
+  }
+
   override def main(args: Array[String]): Unit = {
-    val arry = List(20, 16, 3, 5, 1, 12, 2, 1)
-    mergeSort(arry)
-    print(arry)
+    val arry = Array[Int](20, 16, 3, 5, 1, 12, 2, 1)
+    sort(arry)
+    print(arry.mkString(" "))
   }
 }
