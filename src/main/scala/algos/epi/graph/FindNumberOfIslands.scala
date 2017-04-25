@@ -4,6 +4,8 @@ package algos.epi.graph
   * Created by geek4you on 4/10/17.
   */
 /**
+  * This is a variation of counting number of connected components in a undirected graph
+  *
   * @see http://www.geeksforgeeks.org/find-number-of-islands/
   *      T(n) = O(nm)
   *      Space = O(nm) // for visited array
@@ -69,7 +71,7 @@ object FindNumberOfIslands {
              row: Int,
              col: Int,
              visited: Array[Array[Boolean]]): Boolean = {
-    row >= 0 && row < grid.length && col >= 0 && col < grid(row).length && grid(
+    (grid.indices contains row) && (grid(row).indices contains col) && grid(
       row)(col) == 1 && !visited(row)(col)
   }
 

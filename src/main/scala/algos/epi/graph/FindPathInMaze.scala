@@ -49,10 +49,8 @@ object FindPathInMaze {
   }
 
   def isFeasible(cur: Coordinate, maze: Array[Array[Int]]): Boolean = {
-    if (cur.x >= 0 && cur.x < maze.length && cur.y >= 0 && cur.y < maze(cur.x).length && maze(
-          cur.x)(cur.y) == 0) {
-      true
-    } else false
+    (maze.indices contains cur.x) && (maze(cur.x).indices contains cur.y) && (maze(
+      cur.x)(cur.y) == 0)
   }
   case class Coordinate(x: Int, y: Int)
 

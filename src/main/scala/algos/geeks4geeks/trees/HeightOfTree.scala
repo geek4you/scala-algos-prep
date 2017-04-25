@@ -22,6 +22,7 @@ object HeightOfTree extends App {
       var count = 0
       while (!queue.isEmpty) {
         var nodeCount = queue.size()
+        count += 1
         while (nodeCount > 0) {
           val current = queue.poll()
           if (Option(current.left).isDefined)
@@ -30,7 +31,6 @@ object HeightOfTree extends App {
             queue.add(current.right)
           nodeCount -= 1
         }
-        count += 1
       }
       count
     }

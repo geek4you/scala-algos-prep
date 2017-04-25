@@ -41,7 +41,6 @@ object DoubleTree extends App {
       val tmp = new Node(root.data)
       tmp.left = root.left
       root.left = tmp
-      root
     }
   }
 

@@ -86,8 +86,8 @@ object MarkOceanInMap {
   }
 
   def isFeasible(grid: Array[Array[Char]], coordinate: Coordinate): Boolean = {
-    if (coordinate.row >= 0 && coordinate.row < grid.length && coordinate.col >= 0 && coordinate.col < grid(
-          coordinate.row).length && grid(coordinate.row)(coordinate.col) == 'W') {
+    if ((grid.indices contains coordinate.row) && (grid(coordinate.row).indices contains coordinate.col) && grid(
+          coordinate.row)(coordinate.col) == 'W') {
       true
     } else false
   }

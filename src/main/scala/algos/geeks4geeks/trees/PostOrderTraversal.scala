@@ -5,10 +5,9 @@ import java.util
 /**
   * Created by geek4you on 2/19/17.
   */
-
 /**
- * Depth first traversal
- */
+  * Depth first traversal
+  */
 object PostOrderTraversal extends App {
 
   /**

@@ -3,7 +3,7 @@ package algos.geeks4geeks.trees
 /**
   * Created by geek4you on 2/19/17.
   */
-object LevelOfNode extends App {
+object ølLevelOfNode extends App {
 
   def level[A](node: Node[A], a: A): Int = {
     if (Option(node).isEmpty)

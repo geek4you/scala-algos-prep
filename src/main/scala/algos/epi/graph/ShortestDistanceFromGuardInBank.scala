@@ -5,6 +5,9 @@ import scala.collection.mutable.ListBuffer
 /**
   * Created by geek4you on 4/9/17.
   */
+/**
+  * @see http://www.geeksforgeeks.org/find-shortest-distance-guard-bank/
+  */
 object ShortestDistanceFromGuardInBank {
 
   def findDistance(grid: Array[Array[Char]]): Array[Array[Int]] = {
@@ -46,10 +49,7 @@ object ShortestDistanceFromGuardInBank {
   def isSafe(cell: Cell,
              grid: Array[Array[Char]],
              result: Array[Array[Int]]): Boolean = {
-    if (grid(cell.row)(cell.col) != 'O' || result(cell.row)(cell.col) != -1)
-      false
-    else
-      true
+    grid(cell.row)(cell.col) == 'O' && result(cell.row)(cell.col) == -1
   }
 
   def main(args: Array[String]): Unit = {
@@ -65,11 +65,7 @@ object ShortestDistanceFromGuardInBank {
   }
 
   def isFeasible(cell: Cell, grid: Array[Array[Char]]): Boolean = {
-    if (cell.row >= 0 && cell.row < grid.length && cell.col >= 0 && cell.col < grid(
-          cell.row).length) {
-      true
-    } else
-      false
+    (grid.indices contains cell.row) && (grid(cell.row).indices contains cell.col)
   }
 
   // row and col of a matrix cell and its distance from guard

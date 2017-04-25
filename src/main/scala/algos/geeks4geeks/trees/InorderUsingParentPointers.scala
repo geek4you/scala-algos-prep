@@ -7,8 +7,7 @@ package algos.geeks4geeks.trees
   *Inorder Non-threaded Binary Tree Traversal without Recursion or Stack
 We have discussed Thread based Morris Traversal. Can we do inorder traversal without threads if we have parent pointers available to us?
 
-Input: Root of Below Tree [Every node of
-       tree has parent pointer also]
+Input: Root of Below Tree [Every node of tree has parent pointer also]
         10
       /    \
      5     100

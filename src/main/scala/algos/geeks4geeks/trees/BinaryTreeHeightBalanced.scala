@@ -45,11 +45,8 @@ object BinaryTreeHeightBalanced extends App {
       val rh = HeightHolder(0)
       val isLeftBalanced = isHeightBalancedOptimized(node.left, lh)
       val isRightBalanced = isHeightBalancedOptimized(node.right, rh)
-
       heightHolder.height = 1 + Math.max(lh.height, rh.height)
-
       isLeftBalanced && isRightBalanced && Math.abs(lh.height - rh.height) < 2
-
     }
   }
 

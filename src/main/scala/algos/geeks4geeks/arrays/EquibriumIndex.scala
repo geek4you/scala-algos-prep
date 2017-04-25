@@ -8,7 +8,7 @@ package algos.geeks4geeks.arrays
   */
 object EquibriumIndex {
 
-  def equibriumIndex(arr: Array[Int]): Unit = {
+  def equibriumIndex(arr: Array[Int]): Int = {
     // get the total sum of the array
     var sum = arr.foldLeft(0)(_ + _)
 
@@ -22,6 +22,6 @@ object EquibriumIndex {
       }
       leftSum = leftSum + arr(i)
     }
-    return -1
+    -1
   }
 }

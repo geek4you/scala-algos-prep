@@ -53,7 +53,7 @@ class HashTable[K, V] {
     var curr = head
     var prev: HashNode[K, V] = null
     while (Option(curr).isDefined && done) {
-      if (head.key == key) // If Key found
+      if (curr.key == key) // If Key found
         done = true
       else { // Else keep moving in chain
         prev = curr
