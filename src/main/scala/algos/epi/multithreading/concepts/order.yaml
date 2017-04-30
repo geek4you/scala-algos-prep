@@ -1,0 +1,12 @@
+lookup-order:
+ - ThreadCreation
+ - Executors
+ - Callables
+ - Timeouts and Futures
+ - ConcurrentUtils
+ - SynchronizedMethod
+ - ReentrantLocks
+ - ReadWriteLocks
+ - Semaphores
+ - WaitNotifyExample
+ - ProducerConsumerWaitNotify
