@@ -25,30 +25,33 @@ object Knapsack0or1Problem {
 
   def optimumSubjectToItemAndCapacity(
       items: Array[Item],
-      k: Int,
+      offset: Int,
       availableCapacity: Int,
       cache: mutable.Map[(Int, Int), Int]): Int = {
 
-    if (k == items.length) // no items to choose
+    if (offset == items.length) // no items to choose
       return 0
 
-    if (!cache.contains(k, availableCapacity)) {
+    if (!cache.contains(offset, availableCapacity)) {
       val withoutCurrentItem =
-        optimumSubjectToItemAndCapacity(items, k + 1, availableCapacity, cache)
+        optimumSubjectToItemAndCapacity(items,
+                                        offset + 1,
+                                        availableCapacity,
+                                        cache)
       val withCurrentItem =
-        if (availableCapacity < items(k).weight) 0
+        if (availableCapacity < items(offset).weight) 0
         else
-          items(k).value + optimumSubjectToItemAndCapacity(
+          items(offset).value + optimumSubjectToItemAndCapacity(
             items,
-            k + 1,
-            availableCapacity - items(k).weight,
+            offset + 1,
+            availableCapacity - items(offset).weight,
             cache)
 
-      cache((k, availableCapacity)) =
+      cache((offset, availableCapacity)) =
         Math.max(withCurrentItem, withoutCurrentItem)
     }
 
-    cache((k, availableCapacity))
+    cache((offset, availableCapacity))
   }
   case class Item(weight: Int, value: Int)
 

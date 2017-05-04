@@ -19,7 +19,7 @@ object SudokuSolver {
     if (i == partialAssignment.length) {
       i = 0 // Starts a new row.
       j += 1
-      if (j == partialAssignment(col).length) {
+      if (j == partialAssignment(row).length) {
         return true; // Entire matrix has been filled without conflict.
       }
     }

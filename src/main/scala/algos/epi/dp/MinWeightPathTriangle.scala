@@ -22,12 +22,12 @@ object MinWeightPathTriangle {
       val currRow = new ArrayBuffer[Int]()
       currRow ++= triangle(i)
       // for the first element
-      currRow(0) = currRow(0) + prevRow(0)
+      currRow(0) += prevRow(0)
       for (j <- 1 until currRow.size - 1) {
         currRow(j) = currRow(j) + Math.min(prevRow(j - 1), prevRow(j))
       }
       // for last element
-      currRow(currRow.length - 1) = currRow(currRow.length - 1) + prevRow(
+      currRow(currRow.length - 1) += prevRow(
         prevRow.length - 1)
 
       prevRow = currRow

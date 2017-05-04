@@ -86,7 +86,7 @@ object ShortestSafePathWithLandmines {
                                  cell.row,
                                  cell.col,
                                  minDistance,
-                                 currDistance)
+                                 currDistance + 1)
         }
       })
     }
