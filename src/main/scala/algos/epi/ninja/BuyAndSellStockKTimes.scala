@@ -37,4 +37,5 @@ object BuyAndSellStockKTimes {
     var prices = Array(2, 5, 7, 1, 4, 3, 1, 3)
     println(maxProfit(prices, 3))
   }
+
 }
